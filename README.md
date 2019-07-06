@@ -206,6 +206,44 @@ Gnome extensions and tweaks
 - [YourKit](https://www.yourkit.com/java/profiler/download/) - java profiler
 - [GIMP](https://www.gimp.org/downloads/)
 
+## Useful tips and tricks
+<details><summary><b>Some useful command-line tricks:</b></summary>
+<p>
+
+- To see the history of all changes made with `apt`([credits](https://askubuntu.com/a/250530/700229)):
+```
+$ (zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null | \
+    egrep '^(Start-Date:|Commandline:)' | \
+    grep -v aptdaemon | \
+    egrep -B1 '^Commandline:'
+```
+
+- To see the history of all `apt(-get)? install` commands(without dates):
+```
+$ (zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null | \
+    egrep '^(Commandline: apt(-get)? install)' | \
+    grep -v aptdaemon | \
+    egrep '^Commandline:'
+```
+
+- To see the history of all `apt(-get)? (remove|purge)` commands(without dates):
+```
+$ (zcat $(ls -tr /var/log/apt/history.log*.gz); cat /var/log/apt/history.log) 2>/dev/null | \
+    egrep '^(Commandline: apt(-get)? (remove|purge))' | \
+    grep -v aptdaemon | \
+    egrep '^Commandline:'
+```
+
+- Change the duration logs are kept for `dpkg` and `apt`:
+```
+$ sudo vim /etc/logrotate.d/apt
+# change rotate from 12 (months) to any other value
+$ sudo vim /etc/logrotate.d/dpkg 
+# same as above
+```
+</p>
+</details>
+
 ## Fixes and Troubleshooting
 ### Windows won't boot without ACHI mode
 - Run a Command Prompt (Admin)
