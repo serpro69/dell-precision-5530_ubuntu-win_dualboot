@@ -163,12 +163,27 @@ Packages: **(This should be moved to install script)**
   - Go to `Settings -> Network -> Modify vpn settings -> IPv4 -> Use this connection only for resources on its network -> Save`
 JDK - https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 Gnome extensions and tweaks
-  - `$ sudo apt install gnome-shell-extensions gnome-tweaks`
   - `$ sudo apt install stow`
   - `$ sudo apt install xclip`
-  - `$ sudo apt install git`
-  - `$ sudo apt install python3-gpg`
-  - `$ sudo apt install curl`
+
+### Gnome Shell Extensions
+First install `$ sudo apt install gnome-shell-extensions gnome-tweaks`
+
+Then install the following extensions:
+- [AlternateTab](https://extensions.gnome.org/extension/15/alternatetab/)
+- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+- [Hide Activities Button](https://extensions.gnome.org/extension/744/hide-activities-button/)
+- [KStatusNotifierItem/AppIndicator Support](https://extensions.gnome.org/extension/615/appindicator-support/)
+- [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
+- [Minimize All](https://extensions.gnome.org/extension/760/minimize-all/)
+- [Native Window Placement](https://extensions.gnome.org/extension/18/native-window-placement/)
+- [NoAnnoyance](https://extensions.gnome.org/extension/1236/noannoyance/)
+- [Places Status Indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
+- [Removable Drive Menu](https://extensions.gnome.org/extension/7/removable-drive-menu/)
+- [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
+- [Syncthing Icon](https://extensions.gnome.org/extension/989/syncthing-icon/)
+- [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
+- [windowNavigator](https://extensions.gnome.org/extension/10/windownavigator/)
 
 ### Optional software
 - [Dropbox](https://www.dropbox.com/install-linux)
@@ -177,9 +192,9 @@ Gnome extensions and tweaks
 - [Brave Browser](https://brave.com/)
   - [Start Page](https://github.com/xero/startpage)
   - Extensions:
-    - [Add to Wunderlist](https://chrome.google.com/webstore/detail/add-to-wunderlist/dmnddeddcgdllibmaodanoonljfdmooc)
+    - <del>[Add to Wunderlist](https://chrome.google.com/webstore/detail/add-to-wunderlist/dmnddeddcgdllibmaodanoonljfdmooc)</dell>
     - [cVim](https://chrome.google.com/webstore/detail/cvim/ihlenndgcmojhcghmfjfneahoeklbjjh)
-    - [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep)
+    - <del>[GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep)</del>
     - [Google Translate](https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb) - until Brave comes up with their own translator.
     - [New Tab Redirect](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna)
     - [NoScript](https://chrome.google.com/webstore/detail/noscript/doojmbjmlfjjnbmnoijecmcbfeoakpjm)
@@ -189,11 +204,13 @@ Gnome extensions and tweaks
     - [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
     - [TabCloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof/)
     - [uBLock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)
+    - [Marinara](https://chrome.google.com/webstore/detail/marinara-pomodoro%C2%AE-assist/lojgmehidjdhhbmpjfamhpkpodfcodef)
+    - Joplin Web Clipper (To start using it, open the Joplin desktop application, go to the Web Clipper Options and follow the instructions.)
 - [IntelliJ Idea](https://www.jetbrains.com/idea/download/#section=linux)
 - [Atom](https://atom.io/)
 - [Guake Terminal](http://guake-project.org/)
 - [Slack](https://slack.com/intl/en-no/downloads/linux)
-- [Telegram](https://desktop.telegram.org/)
+- <del>[Telegram](https://desktop.telegram.org/)</del>
 - [Wire](https://wire.com/en/download/)
 - [Back in Time](https://github.com/bit-team/backintime) - backups
 - [Thunderbird](https://www.thunderbird.net/en-US/)
@@ -245,6 +262,11 @@ $ sudo vim /etc/logrotate.d/dpkg
 ```
 </p>
 </details>
+
+### Remapping keyboard keys
+https://superuser.com/questions/417568/setting-hyper-and-super-modifiers-for-certain-keys-with-setxkbmap-or-xmodmap
+https://askubuntu.com/questions/749660/how-can-i-persistently-remap-keys-in-ubuntu-16-04
+https://askubuntu.com/questions/423627/how-to-make-hyper-and-super-keys-not-do-the-same-thing?noredirect=1&lq=1
 
 
 ## Fixes and Troubleshooting
