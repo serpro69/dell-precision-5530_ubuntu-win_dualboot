@@ -306,7 +306,7 @@ MulticastDNS setting: no
     DNSSEC supported: no
 ```
 
-#### Option 1 (didn't work for me, but kept as a possible solution)
+#### Option 1 (didn't work for me, but kept as a possible solution for reference)
 * Install `openvpn-systemd-resolved` with `sudo apt install openvpn-systemd-resolved` or by following instructions in the [jonathanio/update-systemd-resolved](https://github.com/jonathanio/update-systemd-resolved#openvpn-configuration)
 * Enable stub resolver `sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf`
 * Modify openvpn conf by adding the following lines (At the beginning of the config file.)
@@ -328,6 +328,30 @@ nmcli c modify <vpn-settings-name> ipv4.dns-search '<domain>'
 where `<vpn-settings-name>` is the name of the VPN connection as displayed in Network Manager,
 and `<domain>` is the DNS search domain, i.e. `example.com`
 
+#### Option 3 (this helped with a diffevent vpn connection, also openvpn)
+Add the following lines at the end of the `client.ovpn` config file before importing it:
+```
+script-security 2
+up /etc/openvpn/update-resolv-conf
+down /etc/openvpn/update-resolv-conf
+```
+
+<i>Note: Try combining with <b>Option 2</b></i>
+
+Source: https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-linux/
+
+### KDE Plasma Desktop Not Saving Desktop Settings
+https://bbs.archlinux.org/viewtopic.php?id=218052
+https://unix.stackexchange.com/questions/150513/how-do-i-stop-kde-from-changing-my-screen-resolution
+https://askubuntu.com/questions/299241/how-to-reset-kde-display-settings-after-a-move-to-a-new-machine
+
+Tried the following:
+- switching to intel video and back
+- some suggestions from above links
+
+### KDE does not connect to VPN (openvpn and openconnect) through NetworkManager
+Could not find a solution to this as of now.
+Had to go back to Gnome because of this issue.
 
 ### Useful links
 [Using boot-repair tool to fix Windows boot](https://help.ubuntu.com/community/Boot-Repair#A2nd_option_:_install_Boot-Repair_in_Ubuntu)  
