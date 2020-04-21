@@ -20,28 +20,14 @@ sudo apt install brave-browser
 # ~/.config/BraveSoftware/BraveBroser
 
 # TODO make brave default browser
-
-# TODO install plasma browser integration extension (KDE only)
 #####################################################################
 
 #####################################################################
-# Remove games (KDE)
-sudo apt remove \
-kdegames-card-data-kf5 \
-kdegames-mahjongg-data-kf5 \
-kmahjongg \
-kmines \
-kpat \
-ksudoku
-
 # Manually remove games from Ubuntu Software (GNOME)
 # TODO find out package names
 
 # Remove preinstalled openjdk packages
 sudo apt remove openjdk-11-jre:amd64 openjdk-11-jre-headless:amd64
-
-# Remove ssh-ask-pass (KDE)
-sudo apt remove ksshaskpass
 
 sudo apt autoremove
 #####################################################################
@@ -246,14 +232,6 @@ wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_insta
 #####################################################################
 
 #####################################################################
-# Add applications to menu (KDE)
-kmenuedit
-
-# TODO add Development -> Guake (icon: https://commons.wikimedia.org/wiki/File:Faenza-guake.svg)
-# TODO add icons to Cryptomator, KeePassXC, PCloud if needed (usually gets picked up from appimage)
-#####################################################################
-
-#####################################################################
 # Change logrotate duration for apt and dpgk
 sudo vim /etc/logrotate.d/apt
 # change rotate from 12 (months) to any other value
@@ -309,12 +287,7 @@ systemctl --user start appimaged
 #####################################################################
 
 #####################################################################
-# Visuals / Desktop (KDE)
-# TODO install Latte Dock
-# TODO install Sweet Theme and use desktop layout from the theme
-# Window Behavior -> Multiscreen Behavior -> Active screen follows mouse
-# Advanced Window Behavior -> Window placement -> Centered
-
+# Visuals / Desktop / Extensions
 # sweet theme: https://www.gnome-look.org/p/1253385/
 #####################################################################
 
