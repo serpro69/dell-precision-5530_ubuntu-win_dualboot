@@ -55,9 +55,9 @@ network-manager-openconnect-gnome
 # Misc apt packages
 sudo apt install \
 flameshot \
-php7.2 \
-php7.2-curl \
-php7.2-xml \
+php7.4 \
+php7.4-curl \
+php7.4-xml \
 jq \
 backintime-common \
 backintime-qt
@@ -188,6 +188,37 @@ ln -s ~/Downloads /path/to/data/Downloads
 # Install sdkman
 # url: https://sdkman.io/
 curl -s "https://get.sdkman.io?rcupdate=false" | bash
+#####################################################################
+
+#####################################################################
+# Update java alternatives
+sudo update-alternatives --install /usr/bin/java java /home/sergio/.sdkman/candidates/java/current/bin/java 9999
+sudo update-alternatives --install /usr/bin/javac javac /home/sergio/.sdkman/candidates/java/current/bin/javac 9999
+sudo update-alternatives --install /usr/bin/javadoc javadoc /home/sergio/.sdkman/candidates/java/current/bin/javadoc 9999
+sudo update-alternatives --install /usr/bin/keytool keytool /home/sergio/.sdkman/candidates/java/current/bin/keytool 9999
+sudo update-alternatives --install /usr/bin/orbd orbd /home/sergio/.sdkman/candidates/java/current/bin/orbd 9999
+sudo update-alternatives --install /usr/bin/pack200 pack200 /home/sergio/.sdkman/candidates/java/current/bin/pack200 9999
+sudo update-alternatives --install /usr/bin/policytool policytool /home/sergio/.sdkman/candidates/java/current/bin/policytool 9999
+sudo update-alternatives --install /usr/bin/rmid rmid /home/sergio/.sdkman/candidates/java/current/bin/rmid 9999
+sudo update-alternatives --install /usr/bin/rmiregistry rmiregistry /home/sergio/.sdkman/candidates/java/current/bin/rmiregistry 9999
+sudo update-alternatives --install /usr/bin/servertool servertool /home/sergio/.sdkman/candidates/java/current/bin/servertool 9999
+sudo update-alternatives --install /usr/bin/tnameserv tnameserv /home/sergio/.sdkman/candidates/java/current/bin/tnameserv 9999
+sudo update-alternatives --install /usr/bin/unpack200 unpack200 /home/sergio/.sdkman/candidates/java/current/bin/unpack200 9999
+sudo update-alternatives --install /usr/bin/jjs jjs /home/sergio/.sdkman/candidates/java/current/bin/jjs 9999
+sudo update-alternatives --install /usr/bin/javaws javaws /home/sergio/.sdkman/candidates/java/current/bin/javaws 9999
+
+#TODO find out if there's an easier way to do this
+# For example:
+for file in ~/.sdkman/candidates/java/current/bin/*
+do
+   if [ -x $file ]
+   then
+      filename=`basename $file`
+      sudo update-alternatives --install /usr/bin/$filename $filename $file 20000
+      sudo update-alternatives --set $filename $file
+      #echo $file $filename
+   fi
+done
 #####################################################################
 
 #####################################################################
@@ -340,4 +371,31 @@ d     /tmp/ramdisk/intellij/index   0777 root root  -   -
 d     /tmp/ramdisk/chrome           0777 root root  -   -
 d     /tmp/ramdisk/intellij/system  0777 root root  -   -
 EOF
+#####################################################################
+
+#####################################################################
+# Remove lowlatency kernel packages
+uname -r # if contains lowlatency
+
+# search if others than below are present
+# sudo apt remove -lowlatency<TAB>
+sudo apt remove --purge \
+linux-image-5.4.0-24-lowlatency \
+linux-image-5.4.0-25-lowlatency \
+linux-modules-5.4.0-24-lowlatency \
+linux-modules-5.4.0-25-lowlatency \
+linux-modules-nvidia-440-5.4.0-24-lowlatency \
+linux-modules-nvidia-440-5.4.0-25-lowlatency \
+linux-modules-nvidia-440-lowlatency-hwe-20.04
+
+sudo apt install \
+linux-modules-nvidia-440-5.4.0-25-generic \
+linux-modules-nvidia-440-generic-hwe-20.04 \
+
+shutdown -r now
+#####################################################################
+
+#####################################################################
+# Extras
+rmdir ~/Downloads && ln -s /mnt/data/Downloads ~/Downloads
 #####################################################################
