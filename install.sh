@@ -20,6 +20,10 @@ sudo apt install brave-browser
 # ~/.config/BraveSoftware/BraveBroser
 
 # TODO make brave default browser
+
+# TODO quire app desktop shortcut
+# open brave://apps/
+# right click on Quire and add shortcuts
 #####################################################################
 
 #####################################################################
@@ -61,6 +65,12 @@ php7.4-xml \
 jq \
 backintime-common \
 backintime-qt
+
+# Fonts (fixes rendering of images)
+# After installing should be able to see the dog symbol 🐕
+# the slice of pizza symbol 🍕
+# and thumbs-up symbol 👍
+sudo apt install ttf-ancient-fonts ttf-ancient-fonts-symbola
 
 # Timeshift (backup utility)
 sudo add-apt-repository -y ppa:teejee2008/ppa
@@ -198,7 +208,7 @@ sudo update-alternatives --install /usr/bin/javadoc javadoc /home/sergio/.sdkman
 sudo update-alternatives --install /usr/bin/keytool keytool /home/sergio/.sdkman/candidates/java/current/bin/keytool 9999
 sudo update-alternatives --install /usr/bin/orbd orbd /home/sergio/.sdkman/candidates/java/current/bin/orbd 9999
 sudo update-alternatives --install /usr/bin/pack200 pack200 /home/sergio/.sdkman/candidates/java/current/bin/pack200 9999
-sudo update-alternatives --install /usr/bin/policytool policytool /home/sergio/.sdkman/candidates/java/current/bin/policytool 9999
+# sudo update-alternatives --install /usr/bin/policytool policytool /home/sergio/.sdkman/candidates/java/current/bin/policytool 9999
 sudo update-alternatives --install /usr/bin/rmid rmid /home/sergio/.sdkman/candidates/java/current/bin/rmid 9999
 sudo update-alternatives --install /usr/bin/rmiregistry rmiregistry /home/sergio/.sdkman/candidates/java/current/bin/rmiregistry 9999
 sudo update-alternatives --install /usr/bin/servertool servertool /home/sergio/.sdkman/candidates/java/current/bin/servertool 9999
@@ -320,6 +330,8 @@ systemctl --user start appimaged
 #####################################################################
 # Visuals / Desktop / Extensions
 # sweet theme: https://www.gnome-look.org/p/1253385/
+# user themes: https://extensions.gnome.org/extension/19/user-themes/
+# dash-to-panel: https://extensions.gnome.org/extension/1160/dash-to-panel/
 #####################################################################
 
 #####################################################################
@@ -398,4 +410,49 @@ shutdown -r now
 #####################################################################
 # Extras
 rmdir ~/Downloads && ln -s /mnt/data/Downloads ~/Downloads
+#####################################################################
+
+#####################################################################
+# sqldeveloper
+sudo cp -r /path/to/backup/opt/sqldeveloper /opt/.
+# or download and unarchive
+cp -r /path/to/backup/home/sergio/.sqldeveloper ~/.
+#####################################################################
+
+#####################################################################
+# SoapUI
+sudo cp -r /path/to/backup/opt/SoapUI-5.5.0 /opt/.
+# or download and unarchive
+cp -r /path/to/backup/home/sergio/.sqldeveloper ~/.
+#####################################################################
+
+#####################################################################
+# DBeaver
+# download latest release https://github.com/dbeaver/dbeaver/releases
+# unarchive to /opt
+# cp /opt/dbeaver.desktop ~/.local/share/applications/.
+# vim ~/.local/share/applications/dbeaver.desktop
+# modify paths (use sed instead)
+
+# Alternatively use one of the repositories
+#https://dbeaver.io/download/?start&os=linux&arch=x86_64&dist=deb
+# Debian repository:
+# wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
+# echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+# sudo apt-get update && sudo apt-get install dbeaver-ce
+#
+# Ubuntu PPA:
+# You can use PPA repository to easily install/upgrade DBeaver on Debian Linuxes. Mostly it is the same as regular Debian repo but it is hosted on Launchpad.
+# sudo add-apt-repository ppa:serge-rider/dbeaver-ce
+# sudo apt-get update
+# sudo apt-get install dbeaver-ce
+
+# Vim  support
+#Standalone dbeaver can install some eclipse plugins.
+#So I'm using vrapper as vim keybindings on dbeaver.
+#
+#Help -> Install Software
+#Add vrapper repository http://vrapper.sourceforge.net/update-site/stable
+#Install
+#Restart dbeaver
 #####################################################################
