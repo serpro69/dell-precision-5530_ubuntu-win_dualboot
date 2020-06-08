@@ -319,6 +319,19 @@ systemctl --user start appimaged
 #####################################################################
 
 #####################################################################
+# Vagrant and VirtualBox
+
+# Download vagrant deb image https://www.vagrantup.com/downloads
+# can use a script to download
+# and install with `sudo dpkg -i ~/Downloads/vagrant_.deb`
+# using `apt install` is strongly discouraged by hashicorp
+
+# VirtualBox latest downloads https://www.virtualbox.org/wiki/Downloads
+# Or use apt, but looks like the version is slightly older
+
+#####################################################################
+
+#####################################################################
 # Add to startup if necessary
 # Cryptomator, KeePassXC, Dropbox, PCloud, JetBrains Toolbox,
 #####################################################################
@@ -455,4 +468,23 @@ cp -r /path/to/backup/home/sergio/.sqldeveloper ~/.
 #Add vrapper repository http://vrapper.sourceforge.net/update-site/stable
 #Install
 #Restart dbeaver
+#####################################################################
+
+#####################################################################
+# Flatpack
+# https://flatpak.org/setup/Ubuntu/
+sudo apt install flatpak
+# Add flathub repo
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#####################################################################
+
+#####################################################################
+# Flatpack Packages
+# Peek https://github.com/phw/peek#flatpak
+flatpak install flathub com.uploadedlobster.peek
+#####################################################################
+
+#####################################################################
+# System Settings
+# Settings -> Removable Media -> Never prompt or start programs on media insertion
 #####################################################################
