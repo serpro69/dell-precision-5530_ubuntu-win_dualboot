@@ -27,12 +27,18 @@ sudo apt install brave-browser
 #####################################################################
 
 #####################################################################
+# Remove unneeded packages
+sudo apt remove \
+remmina \
+ibus-table
+
 # Manually remove games from Ubuntu Software (GNOME)
 # TODO find out package names
 
 # Remove preinstalled openjdk packages
 sudo apt remove openjdk-11-jre:amd64 openjdk-11-jre-headless:amd64
 
+# Clean up
 sudo apt autoremove
 #####################################################################
 
@@ -366,6 +372,19 @@ EOF
 #####################################################################
 
 #####################################################################
+# Disable lid actions
+# Set logind.conf
+sudo /etc/systemd/logind.conf
+# HandleLidSwitch=ignore
+# LidSwitchIgnoreInhibited=no
+
+# Set UPower.conf
+sudo /etc/UPower/UPower.conf
+# IgnoreLid=true
+sudo service upower restart
+#####################################################################
+
+#####################################################################
 # Mounts
 sudo mkdir /mnt/data
 sudo tee -a /etc/fstab > /dev/null << EOF
@@ -441,6 +460,9 @@ cp -r /path/to/backup/home/sergio/.sqldeveloper ~/.
 
 #####################################################################
 # DBeaver
+# (2020.08.13) flatpack is now supported:
+flatpak install flathub io.dbeaver.DBeaverCommunity
+
 # download latest release https://github.com/dbeaver/dbeaver/releases
 # unarchive to /opt
 # cp /opt/dbeaver.desktop ~/.local/share/applications/.
