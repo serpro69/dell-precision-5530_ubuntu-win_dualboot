@@ -279,6 +279,20 @@ wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_insta
 #####################################################################
 
 #####################################################################
+# Install typora
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+# or use
+# sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+
+# add Typora's repository
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt update
+
+# install typora
+sudo apt install typora
+#####################################################################
+
+#####################################################################
 # Change logrotate duration for apt and dpgk
 sudo vim /etc/logrotate.d/apt
 # change rotate from 12 (months) to any other value
@@ -379,6 +393,8 @@ sudo /etc/systemd/logind.conf
 # LidSwitchIgnoreInhibited=no
 
 # Set UPower.conf
+# Note: this might not be desirable, as it will keep laptop screen always on,
+# even on closed lid
 sudo /etc/UPower/UPower.conf
 # IgnoreLid=true
 sudo service upower restart
