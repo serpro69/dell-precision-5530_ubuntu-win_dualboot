@@ -305,11 +305,11 @@ sudo vim /etc/logrotate.d/dpkg
 #####################################################################
 
 #####################################################################
-# Install appimaged
-# TODO Download the .deb file from https://github.com/AppImage/appimaged/releases
-sudo dpkg -i appimaged_*.deb
-systemctl --user add-wants default.target appimaged
-systemctl --user start appimaged
+# Install AppImage Launcher
+# https://github.com/TheAssassin/AppImageLauncher/wiki/Install-on-Ubuntu-or-Debian
+sudo add-apt-repository ppa:appimagelauncher-team/stable
+sudo apt update
+sudo apt install appimagelauncher
 #####################################################################
 
 #####################################################################
