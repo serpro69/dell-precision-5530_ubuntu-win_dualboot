@@ -365,6 +365,24 @@ sudo apt install appimagelauncher
 # sweet theme: https://www.gnome-look.org/p/1253385/
 # user themes: https://extensions.gnome.org/extension/19/user-themes/
 # dash-to-panel: https://extensions.gnome.org/extension/1160/dash-to-panel/
+#
+# Conky
+curl -sL -o /opt/conky-x86_64.AppImage \
+    $(curl -sL https://api.github.com/repos/brndnmtthws/conky/releases/latest | \
+    jq --raw-output '.assets[0] | .browser_download_url')
+
+sudo chmod +x /opt/conky
+
+# configs are in ~/.config/conky
+#
+# conky minimalis theme: https://www.gnome-look.org/p/1112273/#files-panel
+# conky-orange-4k: https://gist.github.com/serpro69/0d7b7d109c7f70766b60ee0c20439e16
+# conky-aureola: https://github.com/erikdubois/Aureola
+
+# Plank dock
+# https://github.com/ricotz/plank
+sudo apt install plank
+# config is in ~/.config/plank
 #####################################################################
 
 #####################################################################
