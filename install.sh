@@ -493,6 +493,21 @@ cp -r /path/to/backup/home/sergio/.sqldeveloper ~/.
 #####################################################################
 
 #####################################################################
+# Flatpack
+# https://flatpak.org/setup/Ubuntu/
+sudo apt install flatpak
+# Add flathub repo
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#####################################################################
+
+#####################################################################
+# Flatpack Packages
+# Peek https://github.com/phw/peek#flatpak
+flatpak install flathub com.uploadedlobster.peek
+
+# LibreOffice
+flatpak install flathub org.libreoffice.LibreOffice
+
 # DBeaver
 # (2020.08.13) flatpack is now supported:
 flatpak install flathub io.dbeaver.DBeaverCommunity
@@ -524,20 +539,6 @@ flatpak install flathub io.dbeaver.DBeaverCommunity
 #Add vrapper repository http://vrapper.sourceforge.net/update-site/stable
 #Install
 #Restart dbeaver
-#####################################################################
-
-#####################################################################
-# Flatpack
-# https://flatpak.org/setup/Ubuntu/
-sudo apt install flatpak
-# Add flathub repo
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-#####################################################################
-
-#####################################################################
-# Flatpack Packages
-# Peek https://github.com/phw/peek#flatpak
-flatpak install flathub com.uploadedlobster.peek
 #####################################################################
 
 #####################################################################
