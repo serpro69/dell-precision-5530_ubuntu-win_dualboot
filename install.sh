@@ -40,6 +40,9 @@ sudo apt remove openjdk-11-jre:amd64 openjdk-11-jre-headless:amd64
 
 # Clean up
 sudo apt autoremove
+
+# Remove snap packages
+sudo snap remove vlc && rm -rf ~/snap/vlc # Remove VLC (will be installed with flatpak)
 #####################################################################
 
 #####################################################################
@@ -502,13 +505,20 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 #####################################################################
 # Flatpack Packages
-# Peek https://github.com/phw/peek#flatpak
+
+########
+# Peek #
+# https://github.com/phw/peek#flatpak
 flatpak install flathub com.uploadedlobster.peek
+########
 
-# LibreOffice
+###############
+# LibreOffice #
 flatpak install flathub org.libreoffice.LibreOffice
+###############
 
-# DBeaver
+###########
+# DBeaver #
 # (2020.08.13) flatpack is now supported:
 flatpak install flathub io.dbeaver.DBeaverCommunity
 
@@ -539,6 +549,13 @@ flatpak install flathub io.dbeaver.DBeaverCommunity
 #Add vrapper repository http://vrapper.sourceforge.net/update-site/stable
 #Install
 #Restart dbeaver
+###########
+
+#######
+# VLC #
+flatpak install flathub org.videolan.VLC
+# NB! config is in /home/sergio/.var/app/org.videolan.VLC/
+#######
 #####################################################################
 
 #####################################################################
