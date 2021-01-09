@@ -191,7 +191,18 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.redpill/plugins/zs
 # https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
 "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=#767676,underline\"" >> ~/.extra
 ######
+#####################################################################
 
+#####################################################################
+# Extra CLI tools
+######
+# delta https://github.com/dandavison/delta
+# bat https://github.com/sharkdp/bat
+# bat completion for zsh: mv /path/to/bat.zsh ~/.redpill/plugins/zsh-completions/src/_bat
+# exa https://github.com/ogham/exa
+# git-fuzzy https://github.com/bigH/git-fuzzy
+# lazygit https://github.com/jesseduffield/lazygit/
+######
 #####################################################################
 
 #####################################################################
