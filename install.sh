@@ -185,11 +185,21 @@ sudo ./firstInstall.sh
 #####################################################################
 # Extra ZSH Plugins
 ######
+
 # https://github.com/zsh-users/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.redpill/plugins/zsh-autosuggestions
 # change color of the autosuggestions
 # https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
 "ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=#767676,underline\"" >> ~/.extra
+
+######
+
+# https://github.com/agkozak/zsh-z
+git clone https://github.com/agkozak/zsh-z ~/.redpill/plugins/zsh-z
+# enable plugin in '~/.config_dotfiles'
+# fix autocompletion https://github.com/agkozak/zsh-z#complete_aliases
+# vim /home/sergio/.redpill/lib/1_options.zsh
+
 ######
 #####################################################################
 
