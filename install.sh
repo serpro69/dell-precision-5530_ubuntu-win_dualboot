@@ -16,8 +16,8 @@ sudo apt update
 
 sudo apt install brave-browser
 
-# TODO restore configuration from backup (backup default config first located @ ~/.config/BraveSoftware/BraveBroser)
-# ~/.config/BraveSoftware/BraveBroser
+# TODO restore configuration from backup (backup default config first located @ ~/.config/BraveSoftware/BraveBrowser)
+# ~/.config/BraveSoftware/BraveBrowser
 
 # TODO make brave default browser
 
