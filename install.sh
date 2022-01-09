@@ -589,6 +589,12 @@ flatpak install flathub io.dbeaver.DBeaverCommunity
 flatpak install flathub org.videolan.VLC
 # NB! config is in /home/sergio/.var/app/org.videolan.VLC/
 #######
+
+#########
+# Sleek #
+# https://github.com/ransome1/sleek#get-sleek-from-flathub
+flatpak install flathub com.github.ransome1.sleek
+#########
 #####################################################################
 
 #####################################################################
