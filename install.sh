@@ -599,8 +599,8 @@ flatpak install flathub org.videolan.VLC
 #####################################################################
 # Crons
 #
-# Backup brave browser config daily at 1800
-# 0 18 * * * zip -r $HOME/.config/BraveSoftware/Brave-Browser.bak.$(date +'\%Y\%m\%d').zip $HOME/.config/BraveSoftware/Brave-Browser >/dev/null 2>&1
+# Backup brave browser config on 6th of each month at 1800
+# 0 18 6 * * zip -r $HOME/bak/Brave-Browser.bak.$(date +'\%Y\%m\%d').zip /home/sergio/.config/BraveSoftware/Brave-Browser >$HOME/bak/brave-browser-backup.log.$(date +'\%Y\%m\%d') 2>&1
 #
 #
 #####################################################################
