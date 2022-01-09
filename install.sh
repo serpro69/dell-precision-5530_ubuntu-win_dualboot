@@ -213,6 +213,13 @@ git clone https://github.com/agkozak/zsh-z ~/.redpill/plugins/zsh-z
 # git-fuzzy https://github.com/bigH/git-fuzzy
 # lazygit https://github.com/jesseduffield/lazygit/
 ######
+
+##########
+# gitwatch
+# https://github.com/gitwatch/gitwatch#starting-on-boot
+# add service for watching todo.txt after installing the tool (remember to change the executable path in the gitwatch@service)
+# systemctl --user --now enable gitwatch@$(systemd-escape "'-r git@github.com:hilarious-ceviche/todoer.git' -b main $HOME/todoer/todo.txt").service
+##########
 #####################################################################
 
 #####################################################################
