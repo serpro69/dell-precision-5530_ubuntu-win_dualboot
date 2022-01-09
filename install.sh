@@ -595,3 +595,12 @@ flatpak install flathub org.videolan.VLC
 # System Settings
 # Settings -> Removable Media -> Never prompt or start programs on media insertion
 #####################################################################
+
+#####################################################################
+# Crons
+#
+# Backup brave browser config daily at 1800
+# 0 18 * * * zip -r $HOME/.config/BraveSoftware/Brave-Browser.bak.$(date +'\%Y\%m\%d').zip $HOME/.config/BraveSoftware/Brave-Browser >/dev/null 2>&1
+#
+#
+#####################################################################
