@@ -610,10 +610,27 @@ flatpak install flathub com.github.ransome1.sleek
 #####################################################################
 
 #####################################################################
-# Crons
+# Cronies
 #
-# Backup brave browser config on 6th of each month at 1800
+### Backup brave browser config on 6th of each month at 1800
 # 0 18 6 * * zip -r $HOME/bak/Brave-Browser.bak.$(date +'\%Y\%m\%d').zip /home/sergio/.config/BraveSoftware/Brave-Browser >$HOME/bak/brave-browser-backup.log.$(date +'\%Y\%m\%d') 2>&1
+###
 #
+### Notify on current history size
+mkdir ~/bin/cronies && cd ~/bin/cronies
+touch notify-on-hist-size.sh
+tee -a ./notify-on-hist-size.sh > /dev/null << EOF
+#!/bin/bash
+userid=$(id -u)
+DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$userid/bus"
+export DBUS_SESSION_BUS_ADDRESS
+if [[ $(wc -l ~/.zsh_history | cut -d ' ' -f1) > 15000 ]]; then
+  notify-send -u critical 'HISTFILESIZE Limit' 'Hist file size is above 15000 LOC'
+fi
+EOF
+#
+# add crontab calling the script daily at 1200
+# 0 12 * * * /home/sergio/bin/cronies/notify-on-hist-size.sh
+###
 #
 #####################################################################
