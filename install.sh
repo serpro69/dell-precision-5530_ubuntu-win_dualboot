@@ -602,6 +602,27 @@ flatpak install flathub org.videolan.VLC
 # https://github.com/ransome1/sleek#get-sleek-from-flathub
 flatpak install flathub com.github.ransome1.sleek
 #########
+
+###########
+# Calibre #
+# https://github.com/ransome1/sleek#get-sleek-from-flathub
+flatpak install flathub com.calibre_ebook.calibre
+###########
+
+############
+# Obsidian #
+flatpak install flathub md.obsidian.Obsidian
+############
+
+############
+# Bookworm #
+flatpak install flathub com.github.babluboy.bookworm
+############
+
+###########
+# Foliate #
+flatpak install flathub com.github.johnfactotum.Foliate
+###########
 #####################################################################
 
 #####################################################################
