@@ -623,6 +623,11 @@ flatpak install flathub com.github.babluboy.bookworm
 # Foliate #
 flatpak install flathub com.github.johnfactotum.Foliate
 ###########
+
+########
+# Anki #
+flatpak install flathub net.ankiweb.Anki
+########
 #####################################################################
 
 #####################################################################
