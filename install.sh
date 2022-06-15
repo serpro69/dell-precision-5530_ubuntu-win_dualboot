@@ -1,7 +1,34 @@
+#!/usr/bin/env bash
+
+#####################################################################
+# Some basics first
+#
+# Define colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+release=$(lsb_release -c -s)
+
+# Check if the script is running under Ubuntu 18.04 Bionic Beaver
+if [ "$release" != "focal" ] && [ "$release" != "jammy" ] ; then
+    >&2 echo -e "${RED}This script is made for Ubuntu 20.04/22.04${NC}"
+    exit 1
+fi
+
+# TODO removeme once it can be run
+exit 42 # it's still WIP and not really ready to be executed from start to end
+#####################################################################
+
+
 #####################################################################
 # Ubuntu Tweaks for Dell
 # repo: https://github.com/JackHack96/dell-xps-9570-ubuntu-respin
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/dell-xps-9570-ubuntu-respin/master/xps-tweaks.sh)"
+if [ "$release" == "focal" ]; then
+  sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/dell-xps-9570-ubuntu-respin/master/xps-tweaks.sh)"
+else 
+  echo "https://raw.githubusercontent.com/JackHack96/dell-xps-9570-ubuntu-respin/master/xps-tweaks.sh does not support ubuntu 22.04"
+fi
 #####################################################################
 
 #####################################################################
@@ -36,7 +63,9 @@ ibus-table
 # TODO find out package names
 
 # Remove preinstalled openjdk packages
-sudo apt remove openjdk-11-jre:amd64 openjdk-11-jre-headless:amd64
+if [ "$release" == "focal" ]; then
+  sudo apt remove openjdk-11-jre:amd64 openjdk-11-jre-headless:amd64
+fi
 
 # Clean up
 sudo apt autoremove
@@ -68,27 +97,33 @@ network-manager-openconnect-gnome
 # Misc apt packages
 sudo apt install \
 flameshot \
-php7.4 \
-php7.4-curl \
-php7.4-xml \
 jq \
 backintime-common \
 backintime-qt
+
+# php
+if [ "$release" == "focal" ]; then
+  sudo apt install php7.4 php7.4-curl php7.4-xml
+else
+  sudo apt install php8.1 php8.1-curl php8.1-xml
+fi
 
 # Fonts (fixes rendering of images)
 # After installing should be able to see the dog symbol 🐕
 # the slice of pizza symbol 🍕
 # and thumbs-up symbol 👍
-sudo apt install ttf-ancient-fonts ttf-ancient-fonts-symbola
+if [ "$release" == "focal" ]; then # the issue that I was solving by installing these packages does not seem to be repsent in 22.04
+  sudo apt install ttf-ancient-fonts ttf-ancient-fonts-symbola
+fi
 
 # Timeshift (backup utility)
 sudo add-apt-repository -y ppa:teejee2008/ppa
 sudo apt-get update
 sudo apt-get install timeshift
 
-# QBitTorrent
-sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
-sudo apt install qbittorrent
+# QBitTorrent (now installed with flatpak)
+# sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+# sudo apt install qbittorrent
 
 # Syncthing
 curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
@@ -628,6 +663,11 @@ flatpak install flathub com.github.johnfactotum.Foliate
 # Anki #
 flatpak install flathub net.ankiweb.Anki
 ########
+
+###############
+# qBittorrent #
+flatpak install flathub org.qbittorrent.qBittorrent
+###############
 #####################################################################
 
 #####################################################################
