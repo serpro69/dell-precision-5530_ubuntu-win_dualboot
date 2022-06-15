@@ -215,6 +215,7 @@ sudo ./firstInstall.sh
 # Copy dotfiles to home
 ./bootstrap.sh
 # TODO configure using zsh for default Terminal app
+# open Terminal -> Preferences -> Command -> 'Run custom command instead of my shell' -> Custom Command : /usr/bin/zsh
 #####################################################################
 
 #####################################################################
