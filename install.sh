@@ -679,9 +679,14 @@ flatpak install flathub org.qbittorrent.qBittorrent
 #####################################################################
 # Cronies
 #
-### Backup brave browser config on 6th of each month at 1800
+# hist size notification
+# 0 12 * * * /home/sergio/bin/cronies/notify-on-hist-size.sh
+#
+# periodic local applications' configs backups
 # 0 18 6 * * zip -r $HOME/bak/Brave-Browser.bak.$(date +'\%Y\%m\%d').zip /home/sergio/.config/BraveSoftware/Brave-Browser >$HOME/bak/brave-browser-backup.log.$(date +'\%Y\%m\%d') 2>&1
-###
+# 0 18 7 * * zip -r $HOME/bak/thunderbird.bak.$(date +'\%Y\%m\%d').zip /home/sergio/.thunderbird >$HOME/bak/thunderbird-backup.log.$(date +'\%Y\%m\%d') 2>&1
+# 0 18 8 * * zip -r $HOME/bak/jetbrains.bak.$(date +'\%Y\%m\%d').zip /home/sergio/.config/JetBrains /home/sergio/.local/share/JetBrains >$HOME/bak/jetbrains-backup.log.$(date +'\%Y\%m\%d') 2>&1
+#
 #
 ### Notify on current history size
 mkdir ~/bin/cronies && cd ~/bin/cronies
