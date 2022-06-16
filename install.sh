@@ -706,3 +706,24 @@ EOF
 ###
 #
 #####################################################################
+
+#####################################################################
+# Fonts #
+
+cd $(mktemp -d)
+
+# IMB-Plex
+wget -O plex.zip https://github.com/IBM/plex/releases/latest/download/TrueType.zip
+unzip plex.zip
+mv TrueType ~/.fonts/.
+
+# Jetbrains Mono
+wget -o jetbrains.zip https://github.com/JetBrains/JetBrainsMono/releases/download/v2.242/JetBrainsMono-2.242.zip
+unzip jetbrains.zip
+mkdir ~/.local/share/fonts
+mv fonts/* ~/.local/share/fonts/.
+
+# copy humor-sans font from backup
+
+fc-cache -f -v
+#####################################################################
